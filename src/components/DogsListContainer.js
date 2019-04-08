@@ -1,28 +1,25 @@
 import React, { Component } from "react";
-import request from "superagent";
+import { connect } from "react-redux";
 import DogsList from "./DogsList";
+import { getDogs, setDogs } from "../actions/dogs";
 
-export default class DogsListContainer extends Component {
-  state = { dogBreeds: null };
-
+class DogsListContainer extends Component {
   componentDidMount() {
-    request
-      .get("https://dog.ceo/api/breeds/list/all")
-      .then(response => {
-        console.log(response.body.message);
-        const breeds = Object.keys(response.body.message);
-        this.updateBreeds(breeds);
-      })
-      .catch(console.error);
+    this.props.getDogs();
   }
 
-  updateBreeds(breeds) {
-    this.setState({
-      dogBreeds: breeds
-    });
-  }
+  state = {};
 
   render() {
-    return <DogsList dogBreeds={this.state.dogBreeds} />;
+    if (!this.props.dogs) return "Loading...";
+    return <DogsList dogBreeds={this.props.dogs} />;
   }
 }
+const mapStateToProps = state => {
+  return { dogs: state.dogs };
+};
+
+export default connect(
+  mapStateToProps,
+  { setDogs, getDogs }
+)(DogsListContainer);

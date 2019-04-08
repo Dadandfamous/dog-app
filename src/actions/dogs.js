@@ -1,19 +1,20 @@
 import * as request from "superagent";
 
-export const SET_ALBUMS = "SET_ALBUMS";
+export const SET_DOGS = "SET_DOGS";
 
-export function setAlbums(albums) {
+export function setDogs(dogs) {
   return {
-    type: SET_ALBUMS,
-    payload: albums
+    type: SET_DOGS,
+    payload: dogs
   };
 }
-export const GET_ALBUMS = "GET_ALBUMS";
+export const GET_DOGS = "GET_DOGS";
 
-export function getAlbums() {
+export function getDogs() {
   return function(dispatch) {
-    request("https://jsonplaceholder.typicode.com/albums").then(response => {
-      dispatch(setAlbums(response.body.message));
+    request("https://dog.ceo/api/breeds/list/all").then(response => {
+      console.log(response);
+      dispatch(setDogs(response.body.message));
     });
   };
 }
