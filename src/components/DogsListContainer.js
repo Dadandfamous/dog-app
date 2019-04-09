@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import DogsList from "./DogsList";
 import { getDogs, setDogs } from "../actions/dogs";
+
 
 class DogsListContainer extends Component {
   componentDidMount() {
@@ -11,8 +13,12 @@ class DogsListContainer extends Component {
   state = {};
 
   render() {
+    
     if (!this.props.dogs) return "Loading...";
-    return <DogsList dogBreeds={this.props.dogs} />;
+    return <div><Link to="/landingpage" ><button>Home</button></Link>
+    <DogsList dogBreeds={this.props.dogs} />
+    </div>
+    
   }
 }
 const mapStateToProps = state => {
