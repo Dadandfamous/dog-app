@@ -23,7 +23,6 @@ class DogBreedImagesContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.dogImages);
   return { dogImages: state.dogImages };
 };
 

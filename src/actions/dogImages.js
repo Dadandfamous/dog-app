@@ -19,7 +19,6 @@ export function getDogImages(breed) {
         )}/images/random/10`
       )
       .then(response => {
-        console.log(response.body.message);
         dispatch(setDogImages(response.body.message));
       });
   };
