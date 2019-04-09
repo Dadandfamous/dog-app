@@ -3,17 +3,18 @@ import "./App.css";
 import DogsListContainer from "./components/DogsListContainer";
 import { Route } from "react-router-dom";
 import DogBreedImagesContainer from "./components/DogBreedImagesContainer";
-import NavBarWithHomeButton from "./components/NavBarWithHomeButton";
+// import NavBarWithHomeButton from "./components/NavBarWithHomeButton";
 import { Provider } from "react-redux";
 import store from "./store";
 import LandingPage from "./components/LandingPage";
+import {Link} from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Provider store={store}>
-          
+        <Link to="/dogs" ><button>Training</button></Link>
           <Route exact path="/dogs" component={DogsListContainer} />
           <Route
             path="/dog-breeds/:breed"
