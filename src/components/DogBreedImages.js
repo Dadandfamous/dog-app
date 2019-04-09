@@ -10,7 +10,7 @@ export default function DogBreedImages(props) {
       This page will show off the {props.name} breed.
       <Link to="/dogs">Go back to the index</Link>
       <div>
-        {images && images.map(url => <img key={url} src={url} alt="Dog" />)}
+        {images && images.map(url => <img key={url} src={url} alt="Dog" className="dogpicture"/>)}
         {!images && "Loading..."}
       </div>
     </div>

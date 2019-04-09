@@ -13,4 +13,4 @@ export default class ButtonTraining extends Component {
     );
   }
 }
-Collapse;
+// Collapse;

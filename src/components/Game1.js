@@ -12,10 +12,10 @@ export default class Game1 extends Component {
     // console.log('hellllo',this.state.breed)
   }
 
-  randomAnswers(name){
+  randomAnswers = (name) => {
     console.log(Object.keys(name)[1]);
     let arr = []
-      while(arr.length < 3){
+      while(arr.length < 2){
       let r = Math.floor(Math.random()*77) + 1;
       if(arr.indexOf(r) === -1) arr.push(r);
       // this.setState({name: name[arr]})
@@ -24,16 +24,17 @@ export default class Game1 extends Component {
       const newArray = arr.map(nr => {
         return Object.keys(name)[nr]})
       console.log(newArray);
+      // wrongDogs.push(newArray[0])
+      wrongDogs.push(newArray[1])
   }
 }
-  componentDidMount(){
 
+  componentDidMount(){
 
       request
       .get('https://dog.ceo/api/breeds/list/all').then(response=> { 
       this.randomAnswers(response.body.message)
       })
-
 
     request
         .get('https://dog.ceo/api/breeds/image/random/1').then(response=> {
@@ -41,21 +42,27 @@ export default class Game1 extends Component {
         })
   }
 
-showAnswer = () => {
-  this.setState({
-    showAnswer: true
-  })
-}
+  showAnswer = () => {
+    this.setState({
+      showAnswer: true
+    })
+  }
 
   render() {
     console.log(this.state);
+
     return (
       <div>
         <img alt="dog" src={this.state.image}/>
         <input type="text" id="input" />
         <button onClick={this.showAnswer}>Show answer</button>
         {this.state.showAnswer && <h1>{this.state.breed}</h1>}
+        <div>{this.state.breed}</div>
+        <div>{wrongDogs[1]}</div>
+        
       </div>
       )
   }
 }
+
+const wrongDogs = []
