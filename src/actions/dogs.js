@@ -13,7 +13,6 @@ export const GET_DOGS = "GET_DOGS";
 export function getDogs() {
   return function(dispatch) {
     request("https://dog.ceo/api/breeds/list/all").then(response => {
-      console.log(response);
       dispatch(setDogs(response.body.message));
     });
   };
