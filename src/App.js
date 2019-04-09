@@ -7,6 +7,7 @@ import DogBreedImagesContainer from "./components/DogBreedImagesContainer";
 import { Provider } from "react-redux";
 import store from "./store";
 import LandingPage from "./components/LandingPage";
+import Game1 from "./components/Game1";
 import {Link} from 'react-router-dom'
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
             component={DogBreedImagesContainer}
           />
           <Route exact path="/landingpage" component={LandingPage} />
+          <Route exact path="/game1" component={Game1} />
         </Provider>
       </div>
     );

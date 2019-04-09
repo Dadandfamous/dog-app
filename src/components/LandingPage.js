@@ -6,6 +6,7 @@ export default class LandingPage extends Component {
     return (
       <div>
        <Link to="/dogs" ><button>Training</button></Link>
+       <Link to="/game1" ><button>Game 1</button></Link>
       </div>
     )
   }
