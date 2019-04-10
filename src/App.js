@@ -6,10 +6,12 @@ import DogBreedImagesContainer from "./components/DogBreedImagesContainer";
 // import NavBarWithHomeButton from "./components/NavBarWithHomeButton";
 import { Provider } from "react-redux";
 import store from "./store";
-import LandingPage from "./components/LandingPage";
+// import LandingPage from "./components/LandingPage";
 import Game1 from "./components/Game1";
 import {Link} from 'react-router-dom'
 
+ 
+// This is our landingpage:
 class App extends Component {
   render() {
     return (
@@ -21,7 +23,7 @@ class App extends Component {
             path="/dog-breeds/:breed"
             component={DogBreedImagesContainer}
           />
-          <Route exact path="/landingpage" component={LandingPage} />
+         {/* <Route exact path="/landingpage" component={LandingPage} />*/}
           <Route exact path="/game1" component={Game1} />
         </Provider>
       </div>

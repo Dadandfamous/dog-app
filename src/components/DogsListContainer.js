@@ -15,8 +15,12 @@ class DogsListContainer extends Component {
   render() {
     
     if (!this.props.dogs) return "Loading...";
-    return <div><Link to="/landingpage" ><button>Home</button></Link>
+    return <div>
+    
+    <Link to="/" ><button>Home</button></Link>
+    <Link to="/game1" ><button>Game 1</button></Link>
     <DogsList dogBreeds={this.props.dogs} />
+  
     </div>
     
   }

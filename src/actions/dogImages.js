@@ -23,3 +23,17 @@ export function getDogImages(breed) {
       });
   };
 }
+
+export const GET_DOGGAMEIMAGE = "GET_DOGGAMEIMAGE";
+
+export function getDogGameImage() {
+  return function(dispatch) {
+    request
+      .get(
+        `https://dog.ceo/api/breeds/image/random/1`
+      )
+      .then(response => {
+        dispatch(setDogImages(response.body.message));
+      });
+  };
+}
