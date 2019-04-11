@@ -1,16 +1,15 @@
-export default (state = {}, action = {}) => {
+export default (state = { randomDogs: [], breeds: [] }, action = {}) => {
   switch (action.type) {
     case "SET_DOGS":
       return {
         ...state,
-        url: action.payload
-      };
-    case "SET_ANSWER":
-      console.log(action.payload);
+        breeds: action.payload
+      }
+    case "SET_RANDOM_DOGS":
       return {
         ...state,
-        array: action.payload
-      };
+        randomDogs: action.payload
+      }
 
     default:
       return state;

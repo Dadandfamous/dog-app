@@ -30,7 +30,10 @@ export function getDogGameImage(breed) {
   return function(dispatch) {
     request
       .get(
+
         `https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random`
+
+
       )
       .then(response => {
         console.log(response.body.message);
@@ -38,6 +41,7 @@ export function getDogGameImage(breed) {
       });
   };
 }
+
 
 export const SET_RANDOM_DOG_IMAGE = "SET_RANDOM_DOG_IMAGE";
 
@@ -47,3 +51,19 @@ export function setRandomDogImage(dogs) {
     payload: dogs
   };
 }
+
+export function getDogName () {
+  return function (dispatch) {
+    request
+    .get(
+      `https://dog.ceo/api/breed`
+    )
+    .then(response => {
+      console.log(response);
+      dispatch(setDogImages(response.body.message))
+    })
+  }
+}
+
+export const GET_DOGNAME =  "GET_DOGNAME"
+
