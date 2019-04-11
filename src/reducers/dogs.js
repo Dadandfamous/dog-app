@@ -1,9 +1,16 @@
-export default (state = [], action = {}) => {
+export default (state = {}, action = {}) => {
   switch (action.type) {
     case "SET_DOGS":
-      return Object.keys(action.payload).map(dogs => {
-        return dogs;
-      });
+      return {
+        ...state,
+        url: action.payload
+      };
+    case "SET_ANSWER":
+      console.log(action.payload);
+      return {
+        ...state,
+        array: action.payload
+      };
 
     default:
       return state;

@@ -4,6 +4,8 @@ export default (state = [], action = {}) => {
       return action.payload.map(dogs => {
         return dogs;
       });
+    case "SET_RANDOM_DOG_IMAGE":
+      return action.payload;
 
     default:
       return state;
