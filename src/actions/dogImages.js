@@ -26,15 +26,29 @@ export function getDogImages(breed) {
 
 export const GET_DOGGAMEIMAGE = "GET_DOGGAMEIMAGE";
 
-export function getDogGameImage() {
+export function getDogGameImage(breed) {
   return function(dispatch) {
     request
       .get(
-        `https://dog.ceo/api/breeds/image/random/3`
+
+        `https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random`
+
+
       )
       .then(response => {
-        dispatch(setDogImages(response.body.message));
+        console.log(response.body.message);
+        dispatch(setRandomDogImage(response.body.message));
       });
+  };
+}
+
+
+export const SET_RANDOM_DOG_IMAGE = "SET_RANDOM_DOG_IMAGE";
+
+export function setRandomDogImage(dogs) {
+  return {
+    type: SET_RANDOM_DOG_IMAGE,
+    payload: dogs
   };
 }
 
@@ -52,3 +66,4 @@ export function getDogName () {
 }
 
 export const GET_DOGNAME =  "GET_DOGNAME"
+
