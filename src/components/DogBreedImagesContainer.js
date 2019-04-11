@@ -18,6 +18,7 @@ class DogBreedImagesContainer extends Component {
         name={this.props.match.params.breed}
         images={this.props.dogImages}
       />
+     
     );
   }
 }

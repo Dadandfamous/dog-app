@@ -30,10 +30,25 @@ export function getDogGameImage() {
   return function(dispatch) {
     request
       .get(
-        `https://dog.ceo/api/breeds/image/random/1`
+        `https://dog.ceo/api/breeds/image/random/3`
       )
       .then(response => {
         dispatch(setDogImages(response.body.message));
       });
   };
 }
+
+export function getDogName () {
+  return function (dispatch) {
+    request
+    .get(
+      `https://dog.ceo/api/breed`
+    )
+    .then(response => {
+      console.log(response);
+      dispatch(setDogImages(response.body.message))
+    })
+  }
+}
+
+export const GET_DOGNAME =  "GET_DOGNAME"

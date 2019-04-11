@@ -9,7 +9,6 @@ class DogsListContainer extends Component {
   componentDidMount() {
     this.props.getDogs();
   }
-
   state = {};
 
   render() {
@@ -18,7 +17,7 @@ class DogsListContainer extends Component {
     return <div>
     
     <Link to="/" ><button>Home</button></Link>
-    <Link to="/game1" ><button>Game 1</button></Link>
+    
     <DogsList dogBreeds={this.props.dogs} />
   
     </div>

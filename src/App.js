@@ -7,7 +7,8 @@ import DogBreedImagesContainer from "./components/DogBreedImagesContainer";
 import { Provider } from "react-redux";
 import store from "./store";
 // import LandingPage from "./components/LandingPage";
-import Game1 from "./components/Game1";
+import Game1 from './components/Game1';
+import Game2 from './components/Game2';
 import {Link} from 'react-router-dom'
 
  
@@ -18,6 +19,8 @@ class App extends Component {
       <div className="App">
         <Provider store={store}>
         <Link to="/dogs" ><button>Training</button></Link>
+        <Link to="/game1" ><button>Game 1</button></Link>
+        <Link to="/game2" ><button>Game 2</button></Link>
           <Route exact path="/dogs" component={DogsListContainer} />
           <Route
             path="/dog-breeds/:breed"
@@ -25,6 +28,7 @@ class App extends Component {
           />
          {/* <Route exact path="/landingpage" component={LandingPage} />*/}
           <Route exact path="/game1" component={Game1} />
+          <Route exact path="/game2" component={Game2} />
         </Provider>
       </div>
     );
