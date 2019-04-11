@@ -22,12 +22,12 @@ class Game1 extends Component {
   }
 
   render() {
-    const dogNames = this.props.dogs.array;
+    const dogNames = this.props.dogs1.array;
     if (!this.props.dogImages) return "Loading...";
 
     return (
       <div>
-        <img src={this.props.dogs.url} alt="dog" />
+        <img src={this.props.dogs1.url} alt="dog" />
         <br />
 
         {dogNames && dogNames.map(dog => <button key={dog}>{dog}</button>)}
@@ -37,7 +37,7 @@ class Game1 extends Component {
 }
 
 const mapStateToProps = state => {
-  return { dogImages: state.dogImages, dogs: state.dogs };
+  return { dogImages: state.dogImages, dogs1: state.dogs1 };
 };
 
 export default connect(
