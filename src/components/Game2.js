@@ -27,7 +27,7 @@ import {getRandomDogs} from '../actions/dogs'
               dog => <button key={dog.url}>
                 <img
                   alt={dog === correctAnswer ? 'correct' : 'incorrect' }
-                  onClick={dog === correctAnswer ? this.sayGoodJob : this.sayBadJob }
+                  // onClick={dog === correctAnswer ? this.sayGoodJob : this.sayBadJob }
                   src={dog.url}
                 />
               </button>
@@ -52,7 +52,7 @@ import {getRandomDogs} from '../actions/dogs'
 //  function sayBadJob() {
 //   alert('bad job')
 // }
-//  console.log(this.props.randomDogs[1])
+ console.log(this.props.randomDogs[1])
 
  const randomNum = Math.floor(Math.random() * 3) 
  console.log('sdffsasfad',randomNum)

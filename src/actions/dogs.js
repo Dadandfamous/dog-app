@@ -58,12 +58,9 @@ export function getRandomDogs() {
 
               const breed = randomBreeds[index]
             
-              const ranKey = Math.floor(Math.random() * 99999999)
-
               return {
                 breed,
-                url,
-                ranKey
+                url
               }
             })
             console.log(breedData)
