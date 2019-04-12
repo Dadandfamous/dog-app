@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {setDogImages, getDogGameImage, getDogName } from '../actions/dogImages'
-import {getRandomDogs} from '../actions/dogs'
+import {
+  setDogImages,
+  getDogGameImage,
+  getDogName
+} from '../actions/dogImages'
+import {getRandomDogs, displayMessage} from '../actions/dogs'
 
  class Game2 extends Component {
-  state ={}
+  state = {}
   
   componentDidMount() {
     this.props.getDogGameImage()
@@ -12,50 +16,52 @@ import {getRandomDogs} from '../actions/dogs'
   }
 
   render() {
-    console.log("this.props test:", this.props)
-    console.log('randomNum test:', randomNum)
 
-    const correctAnswer = this.props.randomDogs.length && this.props.randomDogs[randomNum]
-
+    let correctAnswer = this.props.randomDogs.length && this.props.randomDogs[randomNum]
+    console.log(correctAnswer)
     if (!this.props.dogImages) {
       return "Loading...";
     } else {
       return (
         <div>
+        <h1>Click on the right picture!</h1>
+        {
+          <h1><p>Do you recognize the {correctAnswer && correctAnswer.url.split('/')[4] }?</p></h1>
+        }
           {
             this.props.randomDogs.map(
-              dog => <button key={dog.url}>
-                <img
-                  alt={dog === correctAnswer ? 'correct' : 'incorrect' }
-                  onClick={dog === correctAnswer ? this.sayGoodJob : this.sayBadJob }
-                  src={dog.url}
-                />
-              </button>
-            )
+              dog => {
+                const message = dog === correctAnswer
+                  ? 'correct'
+                  : 'incorrect'
+
+                  return <button
+                  onClick={() => {
+                    alert(`this is ${message}`)
+                    setTimeout(this.props.getRandomDogs, 2000)
+                  }}
+                  key={dog.url}
+                >
+                  <img
+                    alt={message}
+                    // onClick={console.log('this is ', this.props.randomDogs.img.alt)}
+                    src={dog.url}
+                  />
+                </button>
+              })
           }
 
-          {console.log('fasfasdfasdsdfa',this.props.randomDogs[randomNum])}
+          {console.log('Testing randomnum',this.props.randomDogs[randomNum])}
 
-          {
-            <p>{correctAnswer && correctAnswer.url.split('/')[4] }</p>
-          }
+          
         </div>
       );
       }
   }
  }
 
-//  function sayGoodJob() {
-//    alert('good job')
-//  }
+const randomNum = Math.floor(Math.random() * 3) 
 
-//  function sayBadJob() {
-//   alert('bad job')
-// }
-//  console.log(this.props.randomDogs[1])
-
- const randomNum = Math.floor(Math.random() * 3) 
- console.log('sdffsasfad',randomNum)
 
 const mapStateToProps = state => {
   return {
@@ -66,5 +72,11 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { setDogImages, getDogGameImage, getDogName, getRandomDogs }
+  { 
+    setDogImages,
+    getDogGameImage,
+    getDogName,
+    getRandomDogs,
+    displayMessage
+  }
 )(Game2);

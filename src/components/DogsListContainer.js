@@ -12,20 +12,20 @@ class DogsListContainer extends Component {
   state = {};
 
   render() {
-    
-    if (!this.props.dogs) return "Loading...";
+    console.log(this.props.list)
+    if (!this.props.list) return "Loading...";
     return <div>
     
     <Link to="/" ><button>Home</button></Link>
     
-    <DogsList dogBreeds={this.props.dogs} />
+    <DogsList dogBreeds={this.props.list} />
   
     </div>
     
   }
 }
 const mapStateToProps = state => {
-  return { dogs: state.dogs };
+  return { list: state.list };
 };
 
 export default connect(

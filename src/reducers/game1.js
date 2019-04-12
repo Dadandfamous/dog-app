@@ -6,7 +6,6 @@ export default (state = {}, action = {}) => {
         url: action.payload
       };
     case "SET_ANSWER":
-      console.log(action.payload);
       return {
         ...state,
         array: action.payload
