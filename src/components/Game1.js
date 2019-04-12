@@ -27,6 +27,7 @@ class Game1 extends Component {
 
     return (
       <div>
+      <h1>Choose the right race for the picture!</h1>
         <img src={this.props.dogs1.url} alt="dog" />
         <br />
 
