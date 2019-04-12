@@ -23,16 +23,12 @@ class Game1 extends Component {
   render() {
     const dogNames = this.props.dogs1.array;
     const url = this.props.dogs1.url
+    
 
-    const urlSplit = url && url.split('/')[4]
-
-    const correctAnswerIndex = dogNames && dogNames.indexOf(urlSplit)
-
-    const correctAnswer = dogNames && dogNames[correctAnswerIndex];
-
-
-    if (!this.props.dogImages) return "Loading...";
-
+    // console.log(url)
+    if (!this.props.dogImages){
+      return "Loading...";
+    } else {
     return (
       <div>
       <h1>Choose the right breed for the picture!</h1>
@@ -40,19 +36,27 @@ class Game1 extends Component {
         <br />
 
         {dogNames && dogNames.map(dog => {
+          if (typeof url !== 'string')  {return 'loading...'} 
+          else { 
+          const correctAnswer = 
+          url && url.split('/')[4]
           const message = dog === correctAnswer
                   ? 'correct'
                   : 'incorrect'
 
-          return <button onClick={() => alert(`this is ${message}`)} key={dog}>{dog}</button>})
+          return <button onClick={() => alert(`this is ${message}`)} key={dog}>{dog}</button>}})
         }
       </div>
-    );
+      )
+    }
   }
 }
 
 const mapStateToProps = state => {
-  return { dogImages: state.dogImages, dogs1: state.dogs1 };
+  return {
+    dogImages: state.dogImages,
+    dogs1: state.dogs1
+  };
 };
 
 export default connect(

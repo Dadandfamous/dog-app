@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {setDogImages, getDogGameImage, getDogName } from '../actions/dogImages'
+import {
+  setDogImages,
+  getDogGameImage,
+  getDogName
+} from '../actions/dogImages'
 import {getRandomDogs, displayMessage} from '../actions/dogs'
 
  class Game2 extends Component {
-  state ={}
+  state = {}
   
   componentDidMount() {
     this.props.getDogGameImage()
     this.props.getRandomDogs();
-    // this.props.displayMessage();
   }
 
   render() {
@@ -54,21 +57,23 @@ import {getRandomDogs, displayMessage} from '../actions/dogs'
   }
  }
 
-//  console.log(this.props.randomDogs[1])
-
- const randomNum = Math.floor(Math.random() * 3) 
+const randomNum = Math.floor(Math.random() * 3) 
 
 
 const mapStateToProps = state => {
   return {
     dogImages: state.dogImages,
-    randomDogs: state.dogs.randomDogs,
-    // displayMessage: state.dogs.displayMessage
-
+    randomDogs: state.dogs.randomDogs
   };
 };
 
 export default connect(
   mapStateToProps,
-  { setDogImages, getDogGameImage, getDogName, getRandomDogs, displayMessage }
+  { 
+    setDogImages,
+    getDogGameImage,
+    getDogName,
+    getRandomDogs,
+    displayMessage
+  }
 )(Game2);
