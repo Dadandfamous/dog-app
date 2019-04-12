@@ -10,6 +10,7 @@ export default class DogsList extends Component {
 
   render() {
     const { dogBreeds } = this.props;
+    console.log(this.props.list)
     return (
       <div className="dogs-list">
         <h1>Dogs List</h1>
@@ -21,3 +22,4 @@ export default class DogsList extends Component {
     );
   }
 }
+
