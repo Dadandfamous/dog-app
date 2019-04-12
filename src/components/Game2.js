@@ -13,11 +13,9 @@ import {getRandomDogs, displayMessage} from '../actions/dogs'
   }
 
   render() {
-    console.log("this.props test:", this.props)
-    console.log('randomNum test:', randomNum)
 
     let correctAnswer = this.props.randomDogs.length && this.props.randomDogs[randomNum]
-
+    console.log(correctAnswer)
     if (!this.props.dogImages) {
       return "Loading...";
     } else {
@@ -59,14 +57,13 @@ import {getRandomDogs, displayMessage} from '../actions/dogs'
 //  console.log(this.props.randomDogs[1])
 
  const randomNum = Math.floor(Math.random() * 3) 
- console.log('testing 123',randomNum)
+
 
 const mapStateToProps = state => {
   return {
     dogImages: state.dogImages,
     randomDogs: state.dogs.randomDogs,
     // displayMessage: state.dogs.displayMessage
-
 
   };
 };
