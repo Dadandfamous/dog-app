@@ -11,6 +11,12 @@ export default (state = { randomDogs: [], breeds: [] }, action = {}) => {
         randomDogs: action.payload
       }
 
+      case "DISPLAY_MESSAGE":
+      return {
+        ...state,
+        randomDogs: action.payload
+      }
+
     default:
       return state;
   }

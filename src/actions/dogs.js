@@ -30,6 +30,23 @@ export function getDogs() {
 
 export const GET_RANDOM_DOGS = "GET_RANDOM_DOGS";
 
+
+export function displayMessage() {
+  return {
+    type: 'DISPLAY_MESSAGE',
+    payload: console.log('displaymessage 123')
+  }
+}
+
+export const DISPLAY_MESSAGE = "DISPLAY_MESSAGE";
+
+displayMessage = () => {
+  this.props.dispatch({
+    type: "DISPLAY_MESSAGE",
+    payload: console.log('displaymessage 123')
+  })
+}
+
 export function getRandomDogs() {
   return function(dispatch) {
     request("https://dog.ceo/api/breeds/list/all")
@@ -42,7 +59,7 @@ export function getRandomDogs() {
         while(randomBreeds.length < 3){
         let r = Math.floor(Math.random()*breeds.length);
         if(randomBreeds.indexOf(r) === -1) randomBreeds.push(r);}
-        console.log('sdaaf',randomBreeds)
+        console.log('Testing Random Breeds 456',randomBreeds)
      
         const imageApiUrls = randomBreeds.map(number => {
           const breed = breeds[number]

@@ -27,6 +27,7 @@ class Game1 extends Component {
 
     return (
       <div>
+      <h1>Choose the right race for the picture!</h1>
         <img src={this.props.dogs1.url} alt="dog" />
         <br />
 
@@ -54,32 +55,3 @@ export default connect(
     chooseAnswer
   }
 )(Game1);
-
-// updateImages(image) {
-// console.log(image)
-// this.setState({image : image,
-// breed: image[0].split('/')[4]})
-// console.log('hellllo',this.state.breed)
-
-// randomAnswers = (name) => {
-//   console.log(Object.keys(name)[1]);
-//   let arr = []
-//     while(arr.length < 2){
-//     let r = Math.floor(Math.random()*77);
-//     if(arr.indexOf(r) === -1) arr.push(r);
-//     // this.setState({name: name[arr]})
-
-//     // mapping over the array of random numbers to make it an index of the array of the dogs
-//     const newArray = arr.map(nr => {
-//       return Object.keys(name)[nr]})
-//     console.log(newArray);
-//     // wrongDogs.push(newArray[0])
-//     wrongDogs.push(newArray)
-//     // wrongDogs.push(newArray[0])
-// }
-
-// showAnswer = () => {
-//   this.setState({
-//     showAnswer: true
-//   })
-// }
