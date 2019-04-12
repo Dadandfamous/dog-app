@@ -20,6 +20,7 @@ class Game1 extends Component {
   componentDidMount() {
     this.props.getAnswer();
   }
+
   render() {
     const dogNames = this.props.dogs1.array;
     const url = this.props.dogs1.url
@@ -38,14 +39,23 @@ class Game1 extends Component {
         {dogNames && dogNames.map(dog => {
           if (typeof url !== 'string')  {return 'loading...'} 
           else { 
-          const correctAnswer = 
-          url && url.split('/')[4]
-          const message = dog === correctAnswer
-                  ? 'correct'
-                  : 'incorrect'
+            const correctAnswer = 
+            url && url.split('/')[4]
+            const message = dog === correctAnswer
+                    ? 'correct'
+                    : 'incorrect'
 
-          return <button onClick={() => alert(`this is ${message}`)} key={dog}>{dog}</button>}})
-        }
+            return <button
+              onClick={() => {
+                alert(`this is ${message}`)
+                setTimeout(this.props.getAnswer, 2000)
+              }}
+              key={dog}
+            >
+              {dog}
+            </button>
+          }
+        })}
       </div>
       )
     }

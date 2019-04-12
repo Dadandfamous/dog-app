@@ -35,9 +35,12 @@ import {getRandomDogs, displayMessage} from '../actions/dogs'
                   ? 'correct'
                   : 'incorrect'
 
-                return <button
+                  return <button
+                  onClick={() => {
+                    alert(`this is ${message}`)
+                    setTimeout(this.props.getRandomDogs, 2000)
+                  }}
                   key={dog.url}
-                  onClick={() => alert(`this is ${message}`)}
                 >
                   <img
                     alt={message}
